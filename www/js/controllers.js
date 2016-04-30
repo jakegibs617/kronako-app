@@ -14,12 +14,10 @@ angular.module('app.controllers', [])
          encodingType: Camera.EncodingType.JPEG
        };
 
-    $cordovaCamera.getPicture({})
+    $cordovaCamera.getPicture(options)
       .then(function(data) {
-          // console.log('camera data: ' + angular.toJson(data));
-          $scope.pictureUrl = "data:image/jpeg;base64," + data;
+          $scope.pictureUrl = 'data:image/jpeg;base64,' + data;
       }, function(error) {
-        // console.log('error data: ' + angular.toJson(data));
       })
   };
 
