@@ -7,8 +7,8 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+
 
       .state('tabsController.signIn', {
     url: '/sign-in',
@@ -45,7 +45,7 @@ angular.module('app.routes', [])
     views: {
       'tab4': {
         templateUrl: 'templates/gallery.html',
-        controller: 'galleryCtrl'
+        controller: 'cameraCtrl'
       }
     }
   })
@@ -68,6 +68,6 @@ angular.module('app.routes', [])
 
 $urlRouterProvider.otherwise('/page1/settings')
 
-  
+
 
 });

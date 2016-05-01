@@ -10,15 +10,25 @@ angular.module('app.controllers', [])
   $scope.takePicture = function() {
 
     var options = {
-         destinationType: Camera.DestinationType.DATA_URL,
-         encodingType: Camera.EncodingType.JPEG
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 100,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+  	  correctOrientation:true
        };
 
     $cordovaCamera.getPicture(options)
       .then(function(data) {
-          $scope.pictureUrl = 'data:image/jpeg;base64,' + data;
-      }, function(error) {
-      })
+        $scope.pictureUrl = data;
+
+    }, function(err) {
+      // error
+    });
+
   };
 
 })
@@ -27,9 +37,9 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('galleryCtrl', function($scope) {
-
-})
+// .controller('galleryCtrl', function($scope) {
+//
+// })
 
 .controller('settingsCtrl', function($scope) {
 
