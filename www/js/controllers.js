@@ -23,13 +23,18 @@ angular.module('app.controllers', [])
 
     $cordovaCamera.getPicture(options)
       .then(function(data) {
-        $scope.pictureUrl = data;
-
-    }, function(err) {
-      // error
-    });
+          $scope.pictureUrl = 'data:image/jpeg;base64,' + data;
+      }, function(error) {
+      })
 
   };
+    $scope.images = [];
+    $scope.loadImages = function() {
+      for(var i = 0; i < 100; i++) {
+          $scope.images.push({id: i, src: "http://placehold.it/50x50"
+        });
+      }
+    };
 
 })
 
@@ -37,9 +42,9 @@ angular.module('app.controllers', [])
 
 })
 
-// .controller('galleryCtrl', function($scope) {
-//
-// })
+.controller('galleryCtrl', function($scope) {
+
+})
 
 .controller('settingsCtrl', function($scope) {
 
