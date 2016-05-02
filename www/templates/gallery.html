@@ -1,5 +1,5 @@
 <ion-view title="Gallery" id="page5">
-    <ion-content padding="true" style="background: url(img/background.png) no-repeat center;background-size:cover;" class="has-header" ng-init="loadImages()">
+    <ion-content padding="true" style="background: url(img/background.png) no-repeat center;background-size:cover;" class="has-header" ng-init="data()">
       <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
         <div class="col col-25" ng-if="$index < images.length">
             <img ng-src="{{images[$index].src}}" width="100%" />

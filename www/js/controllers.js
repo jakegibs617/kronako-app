@@ -6,7 +6,10 @@ angular.module('app.controllers', [])
 
 .controller('cameraCtrl', function($scope, $cordovaCamera) {
 
-  $scope.pictureUrl = 'http://placehold.it/300x300';
+  $scope.images = [
+    { id: 1, src: "http://placehold.it/300x300" }
+  ];
+
   $scope.takePicture = function() {
 
     var options = {
@@ -23,18 +26,26 @@ angular.module('app.controllers', [])
 
     $cordovaCamera.getPicture(options)
       .then(function(data) {
-          $scope.pictureUrl = 'data:image/jpeg;base64,' + data;
+          $scope.images = [];
+          // $scope.loadImages = function() {
+            // for(var i = 0; i < 10; i++) {
+              // $scope.images.push('data:image/jpeg;base64,' + data);
+          $scope.images.push({id: 2, src: 'data:image/jpeg;base64,' + data});
+          // }
+        // };
+
+
       }, function(error) {
       })
 
   };
-    $scope.images = [];
-    $scope.loadImages = function() {
-      for(var i = 0; i < 100; i++) {
-          $scope.images.push({id: i, src: "http://placehold.it/50x50"
-        });
-      }
-    };
+  //   $scope.images = [];
+  //   $scope.loadImages = function() {
+  //     for(var i = 0; i < 100; i++) {
+  //       $scope.images.push({id: i, src: "http://placehold.it/50x50"
+  //     });
+  //   }
+  // };
 
 })
 

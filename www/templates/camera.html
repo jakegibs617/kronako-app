@@ -2,14 +2,12 @@
     <ion-content padding="true" scroll="true" class="has-header">
       <div class="list-card">
         <div class="item item-image">
-          <img ng-src="{{pictureUrl}}" >
+          <img ng-src="{{ images[0].src }}" >
         </div>
       </div>
       <div class="padding" ng-click="takePicture()">
         <button class="button button-block button-calm">take a picture</button>
       </div>
-
-
 
     </ion-content>
 </ion-view>
