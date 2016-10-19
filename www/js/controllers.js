@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('signInCtrl', function($scope) {
+.controller('LoginCtrl', function($scope) {
 
 })
 
@@ -60,3 +60,18 @@ angular.module('app.controllers', [])
 .controller('settingsCtrl', function($scope) {
 
 })
+
+.controller('signInCtrl', function($scope, $firebaseAuth) {
+  $scope.login = function(){
+    var ref = new Firebase('https://kronako-db9b4.firebaseio.com');
+
+    var authObject = $firebaseAuth(ref);
+
+    authObject.$authWithOAuthPopup('facebook').then(function(authData) {
+      console.log(authData);
+
+    }).catch(function(error) {
+      console.log('error' + error);
+    })
+  }
+});

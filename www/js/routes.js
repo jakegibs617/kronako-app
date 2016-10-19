@@ -66,6 +66,13 @@ angular.module('app.routes', [])
     abstract:true
   })
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    // controller: 'LoginCtrl'
+    controller: 'LoginCtrl as ctrl'
+  })
+
 $urlRouterProvider.otherwise('/page1/settings')
 
 
